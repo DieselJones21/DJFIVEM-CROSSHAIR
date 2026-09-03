@@ -209,7 +209,15 @@
         .concat(pill(50 - p.w / 2, 50 + p.gap, p.w, p.len, 0))
         .concat(pill(50 - p.gap - p.len, 50 - p.w / 2, p.len, p.w, 0))
         .concat(pill(50 + p.gap, 50 - p.w / 2, p.len, p.w, 0));
-    }
+    },
+    circlex: function (p) { return ring(p.r, p.w).concat(xhair(p.gap, p.len, p.xw)); },
+    diamondcross: function (p) { return diamond(p.size, p.w, false).concat(cross(p.gap, p.len, p.cw)); },
+    bracketcircle: function (p) { return brackets(p.gap, p.len, p.w).concat(ring(p.r, p.rw)); },
+    chevroring: function (p) { return ring(p.r, p.w).concat(chevron(p.spread, p.drop, p.cw)); },
+    squarecross: function (p) { return square(p.size, p.w, false).concat(cross(p.gap, p.len, p.cw)); },
+    hexcross: function (p) { return hex(p.size, p.w).concat(cross(p.gap, p.len, p.cw)); },
+    ringtee: function (p) { return ring(p.r, p.w).concat(tee(p.gap, p.len, p.cw, p.stem)); },
+    diamonddotcross: function (p) { return diamond(p.size, p.w, false).concat(dot(p.r)).concat(cross(p.gap, p.len, p.cw)); }
   };
 
   const SPECS = [
@@ -282,7 +290,18 @@
     { name: 'Star Burst', cat: 'styled', kind: 'burstdot', p: { count: 8, inner: 5.2, outer: 11.4, w: 1.2, r: 1.35 } },
     { name: 'Pills', cat: 'styled', kind: 'pills', p: { gap: 3.8, len: 8.6, w: 2.3 } },
     { name: 'Open Pills', cat: 'styled', kind: 'pills', p: { gap: 5.6, len: 9.4, w: 2.05 } },
-    { name: 'Plus Circle', cat: 'hybrid', kind: 'pluscircle', p: { r: 11.6, w: 1.35, gap: 2.4, len: 5.6, cw: 1.25 } }
+    { name: 'Plus Circle', cat: 'hybrid', kind: 'pluscircle', p: { r: 11.6, w: 1.35, gap: 2.4, len: 5.6, cw: 1.25 } },
+    { name: 'Circle X', cat: 'hybrid', kind: 'circlex', p: { r: 11.2, w: 1.3, gap: 2.6, len: 5.2, xw: 1.25 } },
+    { name: 'Diamond Cross', cat: 'hybrid', kind: 'diamondcross', p: { size: 10.4, w: 1.3, gap: 2.2, len: 4.6, cw: 1.2 } },
+    { name: 'Bracket Ring', cat: 'hybrid', kind: 'bracketcircle', p: { gap: 6.4, len: 5.6, w: 1.4, r: 4.8, rw: 1.2 } },
+    { name: 'Ring V', cat: 'hybrid', kind: 'chevroring', p: { r: 10.8, w: 1.3, spread: 6.4, drop: 2.6, cw: 1.45 } },
+    { name: 'Box Cross', cat: 'hybrid', kind: 'squarecross', p: { size: 9.4, w: 1.3, gap: 2.4, len: 4.8, cw: 1.2 } },
+    { name: 'Hex Cross', cat: 'hybrid', kind: 'hexcross', p: { size: 10.2, w: 1.3, gap: 2.2, len: 4.4, cw: 1.2 } },
+    { name: 'Ring T', cat: 'hybrid', kind: 'ringtee', p: { r: 11.4, w: 1.3, gap: 3.2, len: 5.4, cw: 1.25, stem: 'down' } },
+    { name: 'Diamond Core', cat: 'hybrid', kind: 'diamonddotcross', p: { size: 9.6, w: 1.25, r: 1.15, gap: 3.4, len: 4.2, cw: 1.15 } },
+    { name: 'Needle Burst', cat: 'styled', kind: 'burst', p: { count: 12, inner: 5.4, outer: 11.6, w: 1.05 } },
+    { name: 'Tiny Pills', cat: 'styled', kind: 'pills', p: { gap: 2.6, len: 6.4, w: 1.7 } },
+    { name: 'Arc Halo', cat: 'styled', kind: 'arcsdot', p: { r: 11.4, w: 1.55, sweep: 24, count: 8, dot: 1.25 } }
   ];
 
   const VARIANT_COLORS = [
